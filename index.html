@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Decades of Change</title>
+</head>
+<body>
+<canvas id="cv"></canvas>
+
+<div class="txt">
+</div>
+
+<div class="absolute">
+    <button id="reset" onclick="resetScrollPos()">
+        RESET
+    </button>
+
+    <label id="auto-label" for="auto">Auto Scroll</label><input type="checkbox" id="auto" onclick="toggleAuto()">
+</div>
+
+<script type="module" src="/src/main.ts"></script>
+</body>
+</html>
