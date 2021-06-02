@@ -1,10 +1,11 @@
 import * as THREE from "three";
 
 import spaceIMG from './assets/space.jpg';
-import plutoIMG from './assets/pluto.jpg'
-import plutoBumpIMG from './assets/plutobump.jpg'
-import earthIMG from  './assets/earth.jpg';
-import earthBumpIMG from  './assets/earthbump.jpg'
+import plutoIMG from './assets/pluto.jpg';
+import plutoBumpIMG from './assets/plutobump.jpg';
+import earthIMG from './assets/earth.jpg';
+import earthBumpIMG from './assets/earthbump.jpg';
+import machineIMG1 from './assets/machine1.jpg';
 
 export function addSingleStar(scene: THREE.Scene) {
     const Geometry = new THREE.SphereGeometry(1);
@@ -46,7 +47,7 @@ export function addPluto(scene: THREE.Scene) {
 
     scene.add(Planet);
 
-    return Planet
+    return Planet;
 }
 
 export function addEarth(scene: THREE.Scene) {
@@ -64,5 +65,19 @@ export function addEarth(scene: THREE.Scene) {
 
     scene.add(Planet);
 
-    return Planet
+    return Planet;
+}
+
+export function addMachine1(scene: THREE.Scene) {
+    const Picture = new THREE.TextureLoader().load(machineIMG1);
+    const Object_ = new THREE.Mesh(
+        new THREE.BoxGeometry(30, 30, 30),
+        new THREE.MeshStandardMaterial({map: Picture})
+    );
+
+    Object_.position.set(180, -85, -10);
+
+    scene.add(Object_);
+
+    return Object_
 }

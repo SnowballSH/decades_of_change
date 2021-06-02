@@ -5,7 +5,7 @@ import * as THREE from 'three';
 import "./helpers";
 import setupScene from "./setup";
 import textData from "./data";
-import {addEarth, addLights, addPluto, addSingleStar, addSpace} from "./bg";
+import {addEarth, addLights, addMachine1, addPluto, addSingleStar, addSpace} from "./bg";
 
 import font1Source from "./assets/font1.json";
 
@@ -43,6 +43,8 @@ addSpace(scene);
 
 const Pluto = addPluto(scene);
 const Earth = addEarth(scene);
+
+const Machine1 = addMachine1(scene)
 
 function addBGStuff() {
     for (let i = 0; i < 500; i++) addSingleStar(scene);
@@ -134,12 +136,14 @@ function animate() {
     }
 
     Pluto.rotation.x += 0.005;
-    Pluto.rotation.y += 0.0075;
+    Pluto.rotation.y -= 0.0075;
     Pluto.rotation.z += 0.005;
 
     Earth.rotation.x += 0.007;
     Earth.rotation.y += 0.005;
-    Earth.rotation.z += 0.008;
+    Earth.rotation.z -= 0.008;
+
+    Machine1.rotation.y += 0.005;
 
     renderer.render(scene, camera);
 }
