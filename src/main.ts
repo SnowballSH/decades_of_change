@@ -7,37 +7,34 @@ import setupScene from "./setup";
 import textData from "./data";
 import {addEarth, addLights, addPluto, addSingleStar, addSpace} from "./bg";
 
-const {scene, camera, renderer} = setupScene();
+import font1Source from "./assets/font1.json";
 
-const FONT_NAME = "./font1.json";
+const {scene, camera, renderer} = setupScene();
 
 const loader = new THREE.FontLoader();
 
 let texts: THREE.Mesh[] = [];
 
-let doneLoading = false;
+const font1 = loader.parse(font1Source);
 
-loader.load(FONT_NAME, function (font) {
-    textData.forEach(dt => {
-        let FontMaterial = new THREE.MeshStandardMaterial({color: dt.color});
+textData.forEach(dt => {
+    let FontMaterial = new THREE.MeshStandardMaterial({color: dt.color});
 
-        let geometry = new THREE.TextGeometry(dt.text, {
-            font: font,
-            size: dt.size,
-            height: 1,
-            curveSegments: 8,
-        });
-
-        let text = new THREE.Mesh(geometry, FontMaterial);
-
-        text.position.setX(dt.x);
-        text.position.setY(dt.y);
-        text.position.setZ(dt.z);
-
-        scene.add(text);
-        texts.push(text);
+    let geometry = new THREE.TextGeometry(dt.text, {
+        font: font1,
+        size: dt.size,
+        height: 1,
+        curveSegments: 8,
     });
-    doneLoading = true;
+
+    let text = new THREE.Mesh(geometry, FontMaterial);
+
+    text.position.setX(dt.x);
+    text.position.setY(dt.y);
+    text.position.setZ(dt.z);
+
+    scene.add(text);
+    texts.push(text);
 });
 
 addLights(scene);
@@ -127,24 +124,24 @@ window.toggleAuto = toggleAuto;
 
 let autoscroll = false;
 
+(document.querySelector("#loading")! as HTMLElement).style.display = "none";
+
 function animate() {
     requestAnimationFrame(animate);
 
-    if (doneLoading) {
-        if (autoscroll) {
-            window.scrollBy(0, 20);
-        }
-
-        Pluto.rotation.x += 0.005;
-        Pluto.rotation.y += 0.0075;
-        Pluto.rotation.z += 0.005;
-
-        Earth.rotation.x += 0.007;
-        Earth.rotation.y += 0.005;
-        Earth.rotation.z += 0.008;
-
-        renderer.render(scene, camera);
+    if (autoscroll) {
+        window.scrollBy(0, 20);
     }
+
+    Pluto.rotation.x += 0.005;
+    Pluto.rotation.y += 0.0075;
+    Pluto.rotation.z += 0.005;
+
+    Earth.rotation.x += 0.007;
+    Earth.rotation.y += 0.005;
+    Earth.rotation.z += 0.008;
+
+    renderer.render(scene, camera);
 }
 
 animate();
