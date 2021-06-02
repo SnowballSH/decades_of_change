@@ -9,7 +9,7 @@ import {addEarth, addLights, addPluto, addSingleStar, addSpace} from "./bg";
 
 const {scene, camera, renderer} = setupScene();
 
-const FONT_NAME = "/font1.json";
+const FONT_NAME = "./font1.json";
 
 const loader = new THREE.FontLoader();
 
