@@ -5,14 +5,17 @@ import * as THREE from 'three';
 import "./helpers";
 import setupScene from "./setup";
 import textData from "./data";
+import {addEarth, addLights, addPluto, addSingleStar, addSpace} from "./bg";
 
 const {scene, camera, renderer} = setupScene();
 
-const FONT_NAME = "https://raw.githubusercontent.com/mrdoob/three.js/master/examples/fonts/gentilis_bold.typeface.json";
+const FONT_NAME = "/font1.json";
 
 const loader = new THREE.FontLoader();
 
 let texts: THREE.Mesh[] = [];
+
+let doneLoading = false;
 
 loader.load(FONT_NAME, function (font) {
     textData.forEach(dt => {
@@ -34,24 +37,32 @@ loader.load(FONT_NAME, function (font) {
         scene.add(text);
         texts.push(text);
     });
+    doneLoading = true;
 });
 
-const ambientLight = new THREE.AmbientLight(0xeeeeee);
-scene.add(ambientLight);
+addLights(scene);
 
-const light = new THREE.PointLight(0xeeeeee);
-light.position.set(100, 0, -50);
-scene.add(light);
+addSpace(scene);
 
-const lightHelper = new THREE.PointLightHelper(light);
-scene.add(lightHelper);
+const Pluto = addPluto(scene);
+const Earth = addEarth(scene);
+
+function addBGStuff() {
+    for (let i = 0; i < 500; i++) addSingleStar(scene);
+}
+
+addBGStuff();
 
 const BreakPoints: BreakPoint[] = [
     {b: -5000, s: -5300},
     {b: -12000, s: -13000},
-    {b: -20000, s: -22000},
-    {b: -25000, s: -26000}
-]
+    {b: -20000, s: -25000},
+    {b: -28000, s: -30000}
+];
+
+const step1x = (BreakPoints[1].b - BreakPoints[0].s) * -0.015;
+const step1y = (BreakPoints[2].b - BreakPoints[1].s) * 0.02;
+const step1z = (BreakPoints[2].b - BreakPoints[1].s) * -0.005;
 
 function moveCamera() {
     const t = document.body.getBoundingClientRect().top;
@@ -70,21 +81,21 @@ function moveCamera() {
         camera.position.y = 0;
         camera.position.z = BreakPoints[0].b * -0.01;
     } else if (t > BreakPoints[1].s) {
-        camera.position.x = (BreakPoints[1].b - BreakPoints[0].s) * -0.015;
+        camera.position.x = step1x;
         camera.position.y = 0;
         camera.position.z = BreakPoints[0].b * -0.01;
     } else if (t > BreakPoints[2].b) {
-        camera.position.x = (BreakPoints[1].b - BreakPoints[0].s) * -0.015;
+        camera.position.x = step1x;
         camera.position.y = (t - BreakPoints[1].s) * 0.02;
         camera.position.z = (t - BreakPoints[1].s) * -0.005 + (BreakPoints[0].b) * -0.01;
     } else if (t > BreakPoints[2].s) {
-        camera.position.x = (BreakPoints[1].b - BreakPoints[0].s) * -0.015;
-        camera.position.y = (BreakPoints[2].b - BreakPoints[1].s) * 0.02;
-        camera.position.z = (BreakPoints[2].b - BreakPoints[1].s) * -0.005 + (BreakPoints[0].b) * -0.01;
+        camera.position.x = step1x;
+        camera.position.y = step1y;
+        camera.position.z = step1z + (BreakPoints[0].b) * -0.01;
     } else if (t > BreakPoints[3].b) {
-        camera.position.x = (BreakPoints[1].b - BreakPoints[0].s) * -0.015;
-        camera.position.y = (BreakPoints[2].b - BreakPoints[1].s) * 0.02;
-        camera.position.z = (BreakPoints[2].b - BreakPoints[1].s) * -0.005 + (BreakPoints[0].b) * -0.01;
+        camera.position.x = step1x + (t - BreakPoints[2].s) * 0.015;
+        camera.position.y = step1y;
+        camera.position.z = step1z + (BreakPoints[0].b) * -0.01;
     }
 
     // console.log(t);
@@ -104,7 +115,7 @@ function resetScrollPos() {
 // @ts-ignore
 window.resetScrollPos = resetScrollPos;
 
-resetScrollPos()
+resetScrollPos();
 
 function toggleAuto() {
     let box = document.querySelector("#auto")! as HTMLInputElement;
@@ -119,11 +130,21 @@ let autoscroll = false;
 function animate() {
     requestAnimationFrame(animate);
 
-    if (autoscroll) {
-        window.scrollBy(0, 20);
-    }
+    if (doneLoading) {
+        if (autoscroll) {
+            window.scrollBy(0, 20);
+        }
 
-    renderer.render(scene, camera);
+        Pluto.rotation.x += 0.005;
+        Pluto.rotation.y += 0.0075;
+        Pluto.rotation.z += 0.005;
+
+        Earth.rotation.x += 0.007;
+        Earth.rotation.y += 0.005;
+        Earth.rotation.z += 0.008;
+
+        renderer.render(scene, camera);
+    }
 }
 
 animate();
