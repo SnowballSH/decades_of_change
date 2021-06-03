@@ -5,7 +5,17 @@ import * as THREE from 'three';
 import "./helpers";
 import setupScene from "./setup";
 import textData from "./data";
-import {addChild1, addEarth, addLights, addMachine1, addMigration1, addPluto, addSingleStar, addSpace} from "./bg";
+import {
+    addChild1,
+    addChild2,
+    addEarth,
+    addLights,
+    addMachine1,
+    addMigration1,
+    addPluto,
+    addSingleStar,
+    addSpace
+} from "./bg";
 
 import font1Source from "./assets/font1.json";
 
@@ -50,6 +60,7 @@ const MG1OX = Migration1.position.x;
 let mg10xk = -1;
 
 addChild1(scene);
+addChild2(scene);
 
 function addBGStuff() {
     for (let i = 0; i < 500; i++) addSingleStar(scene);
@@ -62,9 +73,9 @@ const BreakPoints: BreakPoint[] = [
     {b: -12000, s: -13000},
     {b: -20000, s: -25000},
     {b: -41000, s: -44000},
-    {b: -49000, s: -51000},
-    {b: -56000, s: -58000},
-    {b: -69000, s: -69000}
+    {b: -49000, s: -54000},
+    {b: -59000, s: -65000},
+    {b: -75000, s: -75000}
 ];
 
 const step1x = (BreakPoints[1].b - BreakPoints[0].s) * -0.015;

@@ -8,6 +8,7 @@ import earthBumpIMG from './assets/earthbump.jpg';
 import machineIMG1 from './assets/machine1.jpg';
 import migrationIMG1 from './assets/migration1.jpg';
 import childIMG1 from './assets/child1.jpg';
+import childIMG2 from './assets/child2.jpg';
 
 export function addSingleStar(scene: THREE.Scene) {
     const Geometry = new THREE.SphereGeometry(1);
@@ -110,10 +111,23 @@ export function addChild1(scene: THREE.Scene) {
         new THREE.MeshStandardMaterial({map: Picture})
     );
 
-    Object_.position.set(-190, -220, -180);
+    Object_.position.set(-160, -220, -180);
 
     scene.add(Object_);
 
     return Object_;
 }
 
+export function addChild2(scene: THREE.Scene) {
+    const Picture = new THREE.TextureLoader().load(childIMG2);
+    const Object_ = new THREE.Mesh(
+        new THREE.PlaneGeometry(64 / 1.5, 48 / 1.5),
+        new THREE.MeshStandardMaterial({map: Picture})
+    );
+
+    Object_.position.set(-120, -220, -330);
+
+    scene.add(Object_);
+
+    return Object_;
+}
