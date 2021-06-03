@@ -1,0 +1,11 @@
+Images:
+    machine1.jpg: https://fdocuments.ec/document/urbanismo-inverso-tedx-pura-vida-margherita-valle.html
+    migration1.jpg: https://upfront.scholastic.com/issues/2016-17/103116/the-great-migration.html
+    child1.jpg: https://www.britannica.com/story/the-rise-of-the-machines-pros-and-cons-of-the-industrial-revolution
+
+Citations:
+    Anon. "Great Migration | NCpedia." NCpedia, 1 Jan 2006, https://www.ncpedia.org/history/cw-1900/great-migration.
+
+Frameworks:
+    Vite.js for bundling
+    THREE.js and WebGL for 3D graphic rendering

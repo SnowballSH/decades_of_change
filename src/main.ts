@@ -5,7 +5,7 @@ import * as THREE from 'three';
 import "./helpers";
 import setupScene from "./setup";
 import textData from "./data";
-import {addEarth, addLights, addMachine1, addPluto, addSingleStar, addSpace} from "./bg";
+import {addChild1, addEarth, addLights, addMachine1, addMigration1, addPluto, addSingleStar, addSpace} from "./bg";
 
 import font1Source from "./assets/font1.json";
 
@@ -44,7 +44,12 @@ addSpace(scene);
 const Pluto = addPluto(scene);
 const Earth = addEarth(scene);
 
-const Machine1 = addMachine1(scene)
+const Machine1 = addMachine1(scene);
+const Migration1 = addMigration1(scene);
+const MG1OX = Migration1.position.x;
+let mg10xk = -1;
+
+addChild1(scene);
 
 function addBGStuff() {
     for (let i = 0; i < 500; i++) addSingleStar(scene);
@@ -56,12 +61,17 @@ const BreakPoints: BreakPoint[] = [
     {b: -5000, s: -5300},
     {b: -12000, s: -13000},
     {b: -20000, s: -25000},
-    {b: -28000, s: -30000}
+    {b: -41000, s: -44000},
+    {b: -49000, s: -51000}
 ];
 
 const step1x = (BreakPoints[1].b - BreakPoints[0].s) * -0.015;
 const step1y = (BreakPoints[2].b - BreakPoints[1].s) * 0.02;
 const step1z = (BreakPoints[2].b - BreakPoints[1].s) * -0.005;
+
+const step2x = step1x + (BreakPoints[3].b - BreakPoints[2].s) * 0.015;
+const step2y = step1y + (BreakPoints[3].b - BreakPoints[2].s) * 0.003;
+const step2z = step1z + (BreakPoints[0].b) * -0.01 + (BreakPoints[3].b - BreakPoints[2].s) * 0.0025;
 
 function moveCamera() {
     const t = document.body.getBoundingClientRect().top;
@@ -93,8 +103,16 @@ function moveCamera() {
         camera.position.z = step1z + (BreakPoints[0].b) * -0.01;
     } else if (t > BreakPoints[3].b) {
         camera.position.x = step1x + (t - BreakPoints[2].s) * 0.015;
-        camera.position.y = step1y;
-        camera.position.z = step1z + (BreakPoints[0].b) * -0.01;
+        camera.position.y = step1y + (t - BreakPoints[2].s) * 0.003;
+        camera.position.z = step1z + (BreakPoints[0].b) * -0.01 + (t - BreakPoints[2].s) * 0.0025;
+    } else if (t > BreakPoints[3].s) {
+        camera.position.x = step2x;
+        camera.position.y = step2y;
+        camera.position.z = step2z;
+    } else if (t > BreakPoints[4].b) {
+        camera.position.x = step2x + (t - BreakPoints[3].s) * -0.006;
+        camera.position.y = step2y;
+        camera.position.z = step2z + (t - BreakPoints[3].s) * 0.03;
     }
 
     // console.log(t);
@@ -144,6 +162,12 @@ function animate() {
     Earth.rotation.z -= 0.008;
 
     Machine1.rotation.y += 0.005;
+
+    if (MG1OX - 50 === Math.round(Migration1.position.x))
+        mg10xk = 1;
+    if (MG1OX === Math.round(Migration1.position.x))
+        mg10xk = -1;
+    Migration1.position.x += 0.1 * mg10xk;
 
     renderer.render(scene, camera);
 }

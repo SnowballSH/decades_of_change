@@ -45,11 +45,49 @@ suffered instead,
 Asking for help from
 the government, passionately.
 `,
-        color: 0xff8a8a,
+        color: 0xf0a547,
         x: 45,
         y: -140,
         z: -20,
         size: 6,
+    },
+    {
+        text: `
+As technology became popular,
+The US government
+opened up to travelers.
+`,
+        color: 0x97C1E7,
+        x: -85,
+        y: -170,
+        z: -40,
+        size: 6,
+    },
+    {
+        text: `
+This caused
+the Great Migration,
+People from the south and overseas,
+coming with their sailors.
+`,
+        color: 0xf04747,
+        x: -220,
+        y: -180,
+        z: -40,
+        size: 6,
+    },
+    {
+        text: `
+But there were way too many people in the city,
+Leaving citizens living in poverty.
+They had to share their small apartments,
+And children are thrown to the machines, operating them with pity.
+`,
+        color: 0xab47f0,
+        x: -200,
+        y: -160,
+        z: -200,
+        size: 5,
     }
 ];
 

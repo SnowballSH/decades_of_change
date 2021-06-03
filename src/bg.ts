@@ -6,6 +6,8 @@ import plutoBumpIMG from './assets/plutobump.jpg';
 import earthIMG from './assets/earth.jpg';
 import earthBumpIMG from './assets/earthbump.jpg';
 import machineIMG1 from './assets/machine1.jpg';
+import migrationIMG1 from './assets/migration1.jpg';
+import childIMG1 from './assets/child1.jpg';
 
 export function addSingleStar(scene: THREE.Scene) {
     const Geometry = new THREE.SphereGeometry(1);
@@ -71,13 +73,42 @@ export function addEarth(scene: THREE.Scene) {
 export function addMachine1(scene: THREE.Scene) {
     const Picture = new THREE.TextureLoader().load(machineIMG1);
     const Object_ = new THREE.Mesh(
-        new THREE.BoxGeometry(30, 30, 30),
+        new THREE.BoxGeometry(100 / 2, 65 / 2, 100 / 2),
         new THREE.MeshStandardMaterial({map: Picture})
     );
 
-    Object_.position.set(180, -85, -10);
+    Object_.position.set(190, -165, -20);
 
     scene.add(Object_);
 
-    return Object_
+    return Object_;
 }
+
+export function addMigration1(scene: THREE.Scene) {
+    const Picture = new THREE.TextureLoader().load(migrationIMG1);
+    const Object_ = new THREE.Mesh(
+        new THREE.PlaneGeometry(144 / 2, 90 / 2),
+        new THREE.MeshStandardMaterial({map: Picture})
+    );
+
+    Object_.position.set(-130, -150, -45);
+
+    scene.add(Object_);
+
+    return Object_;
+}
+
+export function addChild1(scene: THREE.Scene) {
+    const Picture = new THREE.TextureLoader().load(childIMG1);
+    const Object_ = new THREE.Mesh(
+        new THREE.PlaneGeometry(90 / 2, 67 / 2),
+        new THREE.MeshStandardMaterial({map: Picture})
+    );
+
+    Object_.position.set(-190, -220, -180);
+
+    scene.add(Object_);
+
+    return Object_;
+}
+

@@ -9,9 +9,9 @@
 .txt {
     position: absolute;
     color: white;
-    top:0;
+    top: 0;
     left: 0;
-    height: 10000%;
+    height: 20000%;
     width: 100%;
 }
 
@@ -31,13 +31,16 @@
     width: 14px;
     height: 14px;
 }
+
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(13deg, #d6d6d6 14%,#b3b3b3 64%);
+    background: linear-gradient(13deg, #d6d6d6 14%, #b3b3b3 64%);
 }
-::-webkit-scrollbar-thumb:hover{
-    background: linear-gradient(13deg, #cccccc 14%,#ababab 64%);
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(13deg, #cccccc 14%, #ababab 64%);
 }
-::-webkit-scrollbar-track{
+
+::-webkit-scrollbar-track {
     background: #ffffff;
     border-radius: 10px;
     box-shadow: inset 7px 10px 12px #f0f0f0;
