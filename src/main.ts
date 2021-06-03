@@ -62,7 +62,9 @@ const BreakPoints: BreakPoint[] = [
     {b: -12000, s: -13000},
     {b: -20000, s: -25000},
     {b: -41000, s: -44000},
-    {b: -49000, s: -51000}
+    {b: -49000, s: -51000},
+    {b: -56000, s: -58000},
+    {b: -69000, s: -69000}
 ];
 
 const step1x = (BreakPoints[1].b - BreakPoints[0].s) * -0.015;
@@ -72,6 +74,14 @@ const step1z = (BreakPoints[2].b - BreakPoints[1].s) * -0.005;
 const step2x = step1x + (BreakPoints[3].b - BreakPoints[2].s) * 0.015;
 const step2y = step1y + (BreakPoints[3].b - BreakPoints[2].s) * 0.003;
 const step2z = step1z + (BreakPoints[0].b) * -0.01 + (BreakPoints[3].b - BreakPoints[2].s) * 0.0025;
+
+const step3x = step2x + (BreakPoints[4].b - BreakPoints[3].s) * -0.006;
+const step3y = step2y;
+const step3z = step2z + (BreakPoints[4].b - BreakPoints[3].s) * 0.03;
+
+const step4x = step3x;
+const step4y = step3y;
+const step4z = step3z + (BreakPoints[5].b - BreakPoints[4].s) * 0.03;
 
 function moveCamera() {
     const t = document.body.getBoundingClientRect().top;
@@ -113,6 +123,26 @@ function moveCamera() {
         camera.position.x = step2x + (t - BreakPoints[3].s) * -0.006;
         camera.position.y = step2y;
         camera.position.z = step2z + (t - BreakPoints[3].s) * 0.03;
+    } else if (t > BreakPoints[4].s) {
+        camera.position.x = step3x;
+        camera.position.y = step3y;
+        camera.position.z = step3z;
+    } else if (t > BreakPoints[5].b) {
+        camera.position.x = step3x;
+        camera.position.y = step3y;
+        camera.position.z = step3z + (t - BreakPoints[4].s) * 0.03;
+    } else if (t > BreakPoints[5].s) {
+        camera.position.x = step4x;
+        camera.position.y = step4y;
+        camera.position.z = step4z;
+    } else if (t > BreakPoints[6].b) {
+        camera.position.x = step4x;
+        camera.position.y = step4y;
+        camera.position.z = step4z + (t - BreakPoints[5].s) * 0.08;
+    } else if (t > BreakPoints[6].s) {
+        camera.position.x = step3x;
+        camera.position.y = step3y;
+        camera.position.z = step4z + (BreakPoints[6].b - BreakPoints[5].s) * 0.08;
     }
 
     // console.log(t);

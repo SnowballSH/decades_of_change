@@ -88,6 +88,39 @@ And children are thrown to the machines, operating them with pity.
         y: -160,
         z: -200,
         size: 5,
+    },
+    {
+        text: `
+Everything was unsafe, dirty, and difficult,
+People had to consume unsafe meats,
+live on dirty streets,
+Take baths at a place where everybody sees...
+`,
+        color: 0x4797f0,
+        x: -200,
+        y: -150,
+        z: -360,
+        size: 6,
+    },
+    {
+        text: `
+People needed change.
+`,
+        color: 0xf0d847,
+        x: -170,
+        y: -170,
+        z: -510,
+        size: 8,
+    },
+    {
+        text: `
+They have to change.
+`,
+        color: 0xf0d847,
+        x: -170,
+        y: -170,
+        z: -710,
+        size: 8,
     }
 ];
 
