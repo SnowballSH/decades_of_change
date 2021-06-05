@@ -14,7 +14,7 @@ export function addSingleStar(scene: THREE.Scene) {
     const Geometry = new THREE.SphereGeometry(1);
     const Material = new THREE.MeshStandardMaterial({color: 0xffffff});
     const Mesh = new THREE.Mesh(Geometry, Material);
-    const [x, y, z] = Array(3).fill(0).map(() => THREE.MathUtils.randFloatSpread(1000));
+    const [x, y, z] = Array(3).fill(0).map(() => THREE.MathUtils.randFloatSpread(1500));
     Mesh.position.set(x, y, z);
     scene.add(Mesh);
 }
@@ -27,11 +27,11 @@ export function addLights(scene: THREE.Scene) {
     const ambientLight = new THREE.AmbientLight(0xeeeeee);
     scene.add(ambientLight);
 
-    const light1 = new THREE.PointLight(0xeeeeee);
+    const light1 = new THREE.PointLight(0xeeeeee, 0.3);
     light1.position.set(100, 0, -50);
     scene.add(light1);
 
-    const light2 = new THREE.PointLight(0xeeeeee);
+    const light2 = new THREE.PointLight(0xeeeeee, 0.3);
     light2.position.set(-120, -70, -140);
     scene.add(light2);
 

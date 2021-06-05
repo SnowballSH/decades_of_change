@@ -121,6 +121,53 @@ They have to change.
         y: -170,
         z: -710,
         size: 8,
+    },
+    {
+        text: `
+They have to do something so that the future generation
+`,
+        color: 0xf0d847,
+        x: -250,
+        y: -170,
+        z: -910,
+        size: 8,
+    },
+    {
+        text: `
+Won’t live in a society without sanitation.
+`,
+        color: 0xf0d847,
+        x: -220,
+        y: -170,
+        z: -1110,
+        size: 8,
+    },
+    {
+        text: `
+That’s why a group of people stood up,
+Protesting for better living conditions and street cleanup.
+Because the government responded with few actions,
+Calling themselves “progressives”,
+they’ll solve the problems themselves as a club.
+`,
+        color: 0x7FE5F0,
+        x: 100,
+        y: -170,
+        z: -1110,
+        size: 5,
+    },
+    {
+        text: `
+But why did WE as citizens have to tell the government what to do?
+Why only did WE as citizens realize the need for change?
+Why did WE as citizens have to start doing the real work?
+Why shouldn’t the government be the one that manages society?
+`,
+        color: 0x9ff07f,
+        x: 420,
+        y: -170,
+        z: -1110,
+        size: 5,
     }
 ];
 

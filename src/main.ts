@@ -63,7 +63,7 @@ addChild1(scene);
 addChild2(scene);
 
 function addBGStuff() {
-    for (let i = 0; i < 500; i++) addSingleStar(scene);
+    for (let i = 0; i < 800; i++) addSingleStar(scene);
 }
 
 addBGStuff();
@@ -75,7 +75,9 @@ const BreakPoints: BreakPoint[] = [
     {b: -41000, s: -44000},
     {b: -49000, s: -54000},
     {b: -59000, s: -65000},
-    {b: -75000, s: -75000}
+    {b: -74500, s: -75500},
+    {b: -80400, s: -86000},
+    {b: -91400, s: -97000},
 ];
 
 const step1x = (BreakPoints[1].b - BreakPoints[0].s) * -0.015;
@@ -93,6 +95,14 @@ const step3z = step2z + (BreakPoints[4].b - BreakPoints[3].s) * 0.03;
 const step4x = step3x;
 const step4y = step3y;
 const step4z = step3z + (BreakPoints[5].b - BreakPoints[4].s) * 0.03;
+
+const step5x = step4x;
+const step5y = step4y
+const step5z = step4z + (BreakPoints[6].b - BreakPoints[5].s) * 0.08;
+
+const step6x = step5x - (BreakPoints[7].b - BreakPoints[6].s) * 0.06;
+const step6y = step5y;
+const step6z = step5z;
 
 function moveCamera() {
     const t = document.body.getBoundingClientRect().top;
@@ -151,9 +161,25 @@ function moveCamera() {
         camera.position.y = step4y;
         camera.position.z = step4z + (t - BreakPoints[5].s) * 0.08;
     } else if (t > BreakPoints[6].s) {
-        camera.position.x = step3x;
-        camera.position.y = step3y;
-        camera.position.z = step4z + (BreakPoints[6].b - BreakPoints[5].s) * 0.08;
+        camera.position.x = step5x;
+        camera.position.y = step5y;
+        camera.position.z = step5z;
+    } else if (t > BreakPoints[7].b) {
+        camera.position.x = step5x - (t - BreakPoints[6].s) * 0.06;
+        camera.position.y = step5y;
+        camera.position.z = step5z;
+    } else if (t > BreakPoints[7].s) {
+        camera.position.x = step6x;
+        camera.position.y = step6y;
+        camera.position.z = step6z;
+    } else if (t > BreakPoints[8].b) {
+        camera.position.x = step6x - (t - BreakPoints[7].s) * 0.06;
+        camera.position.y = step6y;
+        camera.position.z = step6z;
+    } else if (t > BreakPoints[8].s) {
+        camera.position.x = step6x - (BreakPoints[8].b - BreakPoints[7].s) * 0.06;
+        camera.position.y = step6y;
+        camera.position.z = step6z;
     }
 
     // console.log(t);
@@ -191,7 +217,7 @@ function animate() {
     requestAnimationFrame(animate);
 
     if (autoscroll) {
-        window.scrollBy(0, 20);
+        window.scrollBy(0, 18);
     }
 
     Pluto.rotation.x += 0.005;
