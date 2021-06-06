@@ -5,10 +5,17 @@ import plutoIMG from './assets/pluto.jpg';
 import plutoBumpIMG from './assets/plutobump.jpg';
 import earthIMG from './assets/earth.jpg';
 import earthBumpIMG from './assets/earthbump.jpg';
+import marsIMG from './assets/mars.jpg';
+import marsBumpIMG from './assets/marsbump.jpg';
 import machineIMG1 from './assets/machine1.jpg';
 import migrationIMG1 from './assets/migration1.jpg';
 import childIMG1 from './assets/child1.jpg';
 import childIMG2 from './assets/child2.jpg';
+import womenIMG1 from './assets/women1.jpg';
+import exc from './assets/exc.png';
+import greedIMG1 from './assets/greed1.jpg';
+import protestIMG1 from './assets/protest1.jpg';
+import speaker from './assets/speaker.jpg';
 
 export function addSingleStar(scene: THREE.Scene) {
     const Geometry = new THREE.SphereGeometry(1);
@@ -16,6 +23,8 @@ export function addSingleStar(scene: THREE.Scene) {
     const Mesh = new THREE.Mesh(Geometry, Material);
     let [x, y, z] = Array(3).fill(0).map(() => THREE.MathUtils.randFloatSpread(1500));
     z -= 1000;
+    x -= 500;
+    y -= 600;
     Mesh.position.set(x, y, z);
     scene.add(Mesh);
 }
@@ -77,6 +86,24 @@ export function addEarth(scene: THREE.Scene) {
     return Planet;
 }
 
+export function addMars(scene: THREE.Scene) {
+    const PlanetTexture = new THREE.TextureLoader().load(marsIMG);
+    const NormalTexture = new THREE.TextureLoader().load(marsBumpIMG);
+    const Planet = new THREE.Mesh(
+        new THREE.SphereGeometry(35, 32, 32),
+        new THREE.MeshStandardMaterial({
+            map: PlanetTexture,
+            normalMap: NormalTexture,
+        })
+    );
+
+    Planet.position.set(900, 0, -1140);
+
+    scene.add(Planet);
+
+    return Planet;
+}
+
 export function addMachine1(scene: THREE.Scene) {
     const Picture = new THREE.TextureLoader().load(machineIMG1);
     const Object_ = new THREE.Mesh(
@@ -127,6 +154,76 @@ export function addChild2(scene: THREE.Scene) {
     );
 
     Object_.position.set(-120, -220, -330);
+
+    scene.add(Object_);
+
+    return Object_;
+}
+
+export function addWomen1(scene: THREE.Scene) {
+    const Picture = new THREE.TextureLoader().load(womenIMG1);
+    const Object_ = new THREE.Mesh(
+        new THREE.PlaneGeometry(120 / 2, 94 / 2),
+        new THREE.MeshStandardMaterial({map: Picture})
+    );
+
+    Object_.position.set(150, -160, -1100);
+
+    scene.add(Object_);
+
+    return Object_;
+}
+
+export function addExc(scene: THREE.Scene) {
+    const Picture = new THREE.TextureLoader().load(exc);
+    const Object_ = new THREE.Mesh(
+        new THREE.BoxGeometry(295 / 20, 512 / 20, 295 / 20),
+        new THREE.MeshStandardMaterial({map: Picture})
+    );
+
+    Object_.position.set(390, -190, -1100);
+
+    scene.add(Object_);
+
+    return Object_;
+}
+
+export function addGreed1(scene: THREE.Scene) {
+    const Picture = new THREE.TextureLoader().load(greedIMG1);
+    const Object_ = new THREE.Mesh(
+        new THREE.PlaneGeometry(206 / 3.4, 175 / 3.4),
+        new THREE.MeshStandardMaterial({map: Picture})
+    );
+
+    Object_.position.set(500, -65, -1100);
+
+    scene.add(Object_);
+
+    return Object_;
+}
+
+export function addProtest1(scene: THREE.Scene) {
+    const Picture = new THREE.TextureLoader().load(protestIMG1);
+    const Object_ = new THREE.Mesh(
+        new THREE.PlaneGeometry(128 / 1.5, 72 / 1.5),
+        new THREE.MeshStandardMaterial({map: Picture})
+    );
+
+    Object_.position.set(805, -560, -1100);
+
+    scene.add(Object_);
+
+    return Object_;
+}
+
+export function addSpeaker(scene: THREE.Scene) {
+    const Picture = new THREE.TextureLoader().load(speaker);
+    const Object_ = new THREE.Mesh(
+        new THREE.PlaneGeometry(200 / 3, 133 / 3),
+        new THREE.MeshStandardMaterial({map: Picture})
+    );
+
+    Object_.position.set(1200, -610, -1100);
 
     scene.add(Object_);
 

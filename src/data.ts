@@ -145,14 +145,14 @@ Won’t live in a society without sanitation.
     {
         text: `
 That’s why a group of people stood up,
-Protesting for better living conditions and street cleanup.
+Protesting for voting rights for women and street cleanup.
 Because the government responded with few actions,
 Calling themselves “progressives”,
 they’ll solve the problems themselves as a club.
 `,
         color: 0x7FE5F0,
         x: 100,
-        y: -170,
+        y: -190,
         z: -1110,
         size: 5,
     },
@@ -176,7 +176,7 @@ Lawmakers did not respond to the progressives due to greed.
 `,
         color: 0x87CEEB,
         x: 400,
-        y: -20,
+        y: 0,
         z: -1110,
         size: 6,
     },
@@ -233,7 +233,7 @@ It’s not after we were so close to death that they took action.
 `,
         color: 0xfb1010,
         x: 690,
-        y: -570,
+        y: -590,
         z: -1110,
         size: 6,
         is2d: true
@@ -250,10 +250,10 @@ America is only going to change if citizens
 Getting a better life is NOT free.
 `,
         color: 0xFFD700,
-        x: 1040,
-        y: -550,
+        x: 1000,
+        y: -540,
         z: -1110,
-        size: 5,
+        size: 6,
         is2d: true
     },
 ];

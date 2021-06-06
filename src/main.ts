@@ -9,12 +9,18 @@ import {
     addChild1,
     addChild2,
     addEarth,
+    addExc,
+    addGreed1,
     addLights,
     addMachine1,
+    addMars,
     addMigration1,
     addPluto,
+    addProtest1,
     addSingleStar,
-    addSpace
+    addSpace,
+    addSpeaker,
+    addWomen1
 } from "./bg";
 
 import font1Source from "./assets/font1.json";
@@ -53,6 +59,7 @@ addSpace(scene);
 
 const Pluto = addPluto(scene);
 const Earth = addEarth(scene);
+const Mars = addMars(scene);
 
 const Machine1 = addMachine1(scene);
 const Migration1 = addMigration1(scene);
@@ -61,6 +68,12 @@ let mg10xk = -1;
 
 addChild1(scene);
 addChild2(scene);
+addWomen1(scene);
+const Exc = addExc(scene);
+
+addGreed1(scene);
+addProtest1(scene);
+addSpeaker(scene);
 
 function addBGStuff() {
     for (let i = 0; i < 800; i++) addSingleStar(scene);
@@ -307,7 +320,13 @@ function animate() {
     Earth.rotation.y += 0.005;
     Earth.rotation.z -= 0.008;
 
+    Mars.rotation.x += 0.005;
+    Mars.rotation.y += 0.005;
+    Mars.rotation.z -= 0.008;
+
     Machine1.rotation.y += 0.005;
+
+    Exc.rotation.y -= 0.005;
 
     if (MG1OX - 50 === Math.round(Migration1.position.x))
         mg10xk = 1;
