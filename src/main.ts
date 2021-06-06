@@ -33,7 +33,7 @@ textData.forEach(dt => {
     let geometry = new THREE.TextGeometry(dt.text, {
         font: font1,
         size: dt.size,
-        height: dt.is2d ? 0.4 : 1,
+        height: dt.is2d ? 0.2 : 0.8,
         curveSegments: 8,
     });
 
@@ -79,8 +79,11 @@ const BreakPoints: BreakPoint[] = [
     {b: -80400, s: -88000},
     {b: -93400, s: -103000},
     {b: -106000, s: -109000},
-    {b: -114000, s: -119000},
-    {b: -123000, s: -125000},
+    {b: -114000, s: -132000},
+    {b: -135000, s: -143000},
+    {b: -147000, s: -153000},
+    {b: -157000, s: -163000},
+    {b: -169000, s: -176000},
 ];
 
 const step1x = (BreakPoints[1].b - BreakPoints[0].s) * -0.015;
@@ -118,6 +121,18 @@ const step8z = step7z;
 const step9x = step8x - (BreakPoints[10].b - BreakPoints[9].s) * 0.06;
 const step9y = step8y;
 const step9z = step8z;
+
+const step10x = step9x;
+const step10y = step9y + (BreakPoints[11].b - BreakPoints[10].s) * 0.05;
+const step10z = step9z;
+
+const step11x = step10x;
+const step11y = step10y + (BreakPoints[12].b - BreakPoints[11].s) * 0.05;
+const step11z = step10z;
+
+const step12x = step11x;
+const step12y = step11y + (BreakPoints[13].b - BreakPoints[12].s) * 0.05;
+const step12z = step11z;
 
 function moveCamera() {
     const t = document.body.getBoundingClientRect().top;
@@ -211,6 +226,39 @@ function moveCamera() {
         camera.position.x = step9x;
         camera.position.y = step9y;
         camera.position.z = step9z;
+    } else if (t > BreakPoints[11].b) {
+        camera.position.x = step9x;
+        camera.position.y = step9y + (t - BreakPoints[10].s) * 0.05;
+        camera.position.z = step9z;
+    } else if (t > BreakPoints[11].s) {
+        camera.position.x = step10x;
+        camera.position.y = step10y;
+        camera.position.z = step10z;
+    } else if (t > BreakPoints[12].b) {
+        camera.position.x = step10x;
+        camera.position.y = step10y + (t - BreakPoints[11].s) * 0.05;
+        camera.position.z = step10z;
+    } else if (t > BreakPoints[12].s) {
+        camera.position.x = step11x;
+        camera.position.y = step11y;
+        camera.position.z = step11z;
+    } else if (t > BreakPoints[13].b) {
+        camera.position.x = step11x;
+        camera.position.y = step11y + (t - BreakPoints[12].s) * 0.05;
+        camera.position.z = step11z;
+    } else if (t > BreakPoints[13].s) {
+        camera.position.x = step12x;
+        camera.position.y = step12y;
+        camera.position.z = step12z;
+    } else if (t > BreakPoints[14].b) {
+        camera.position.x = step12x - (t - BreakPoints[13].s) * 0.05;
+        camera.position.y = step12y;
+        camera.position.z = step12z;
+    } else if (t > BreakPoints[14].s) {
+        camera.position.x = step12x - (BreakPoints[14].b - BreakPoints[13].s) * 0.05;
+
+        camera.position.y = step12y;
+        camera.position.z = step12z;
     }
 
     // console.log(t);
@@ -248,7 +296,7 @@ function animate() {
     requestAnimationFrame(animate);
 
     if (autoscroll) {
-        window.scrollBy(0, 18);
+        window.scrollBy(0, 16);
     }
 
     Pluto.rotation.x += 0.005;

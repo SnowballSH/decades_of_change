@@ -174,7 +174,7 @@ Why shouldn’t the government be the one that manages society?
 Because the government corrupted:
 Lawmakers did not respond to the progressives due to greed.
 `,
-        color: 0x9ff07f,
+        color: 0x87CEEB,
         x: 400,
         y: -20,
         z: -1110,
@@ -191,7 +191,7 @@ At this time, local and state governments reached a low point in American histor
 Greed, corruption, and outright bribery were common among many politicians."
                                -- The Progressive Movement and U.S. Foreign Policy, 1890-1920s.
 `,
-        color: 0x9ff07f,
+        color: 0xeeeeee,
         x: 680,
         y: 0,
         z: -1110,
@@ -201,15 +201,60 @@ Greed, corruption, and outright bribery were common among many politicians."
     {
         text: `
 Fixing society requires a large amount of money,
-However, the lawmakers surely didn’t want that --
+However, the lawmakers surely didn't want that --
 Their income depends on how successful they are,
 And they don’t want to risk putting the money in!
 `,
-        color: 0x9ff07f,
-        x: 680,
-        y: -100,
+        color: 0xe5eb87,
+        x: 700,
+        y: -170,
         z: -1110,
         size: 6,
+    },
+    {
+        text: `
+Lawmakers also don’t experience citizens’ lives:
+They live in courthouses with premium services.
+They only know to let outsiders migrate,
+But they forgot their own citizens’ experiences.
+`,
+        color: 0xeb87e7,
+        x: 700,
+        y: -370,
+        z: -1110,
+        size: 6,
+    },
+    {
+        text: `
+It’s not after we spoke up that they took action,
+It’s not after we stroke to the White House that they took action,
+It’s not after we elected a better Senate that they took action,
+It’s not after we were so close to death that they took action.
+`,
+        color: 0xfb1010,
+        x: 690,
+        y: -570,
+        z: -1110,
+        size: 6,
+        is2d: true
+    },
+    {
+        text: `
+Although we are living in a peaceful world right now,
+Corruption in the government still sometimes exists.
+America is only going to change if citizens
+        Want the change,
+        Speak the change,
+        Protest for the change, and
+        Consistently fighting for the change.
+Getting a better life is NOT free.
+`,
+        color: 0xFFD700,
+        x: 1040,
+        y: -550,
+        z: -1110,
+        size: 5,
+        is2d: true
     },
 ];
 
