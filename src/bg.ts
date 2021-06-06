@@ -14,7 +14,8 @@ export function addSingleStar(scene: THREE.Scene) {
     const Geometry = new THREE.SphereGeometry(1);
     const Material = new THREE.MeshStandardMaterial({color: 0xffffff});
     const Mesh = new THREE.Mesh(Geometry, Material);
-    const [x, y, z] = Array(3).fill(0).map(() => THREE.MathUtils.randFloatSpread(1500));
+    let [x, y, z] = Array(3).fill(0).map(() => THREE.MathUtils.randFloatSpread(1500));
+    z -= 1000;
     Mesh.position.set(x, y, z);
     scene.add(Mesh);
 }

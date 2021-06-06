@@ -28,12 +28,12 @@ let texts: THREE.Mesh[] = [];
 const font1 = loader.parse(font1Source);
 
 textData.forEach(dt => {
-    let FontMaterial = new THREE.MeshStandardMaterial({color: dt.color});
+    let FontMaterial = new (dt.is2d ? THREE.MeshBasicMaterial : THREE.MeshStandardMaterial)({color: dt.color});
 
     let geometry = new THREE.TextGeometry(dt.text, {
         font: font1,
         size: dt.size,
-        height: 1,
+        height: dt.is2d ? 0.4 : 1,
         curveSegments: 8,
     });
 
@@ -76,8 +76,11 @@ const BreakPoints: BreakPoint[] = [
     {b: -49000, s: -54000},
     {b: -59000, s: -65000},
     {b: -74500, s: -75500},
-    {b: -80400, s: -86000},
-    {b: -91400, s: -97000},
+    {b: -80400, s: -88000},
+    {b: -93400, s: -103000},
+    {b: -106000, s: -109000},
+    {b: -114000, s: -119000},
+    {b: -123000, s: -125000},
 ];
 
 const step1x = (BreakPoints[1].b - BreakPoints[0].s) * -0.015;
@@ -97,12 +100,24 @@ const step4y = step3y;
 const step4z = step3z + (BreakPoints[5].b - BreakPoints[4].s) * 0.03;
 
 const step5x = step4x;
-const step5y = step4y
+const step5y = step4y;
 const step5z = step4z + (BreakPoints[6].b - BreakPoints[5].s) * 0.08;
 
 const step6x = step5x - (BreakPoints[7].b - BreakPoints[6].s) * 0.06;
 const step6y = step5y;
 const step6z = step5z;
+
+const step7x = step6x - (BreakPoints[8].b - BreakPoints[7].s) * 0.06;
+const step7y = step6y;
+const step7z = step6z;
+
+const step8x = step7x;
+const step8y = step7y - (BreakPoints[9].b - BreakPoints[8].s) * 0.05;
+const step8z = step7z;
+
+const step9x = step8x - (BreakPoints[10].b - BreakPoints[9].s) * 0.06;
+const step9y = step8y;
+const step9z = step8z;
 
 function moveCamera() {
     const t = document.body.getBoundingClientRect().top;
@@ -177,9 +192,25 @@ function moveCamera() {
         camera.position.y = step6y;
         camera.position.z = step6z;
     } else if (t > BreakPoints[8].s) {
-        camera.position.x = step6x - (BreakPoints[8].b - BreakPoints[7].s) * 0.06;
-        camera.position.y = step6y;
-        camera.position.z = step6z;
+        camera.position.x = step7x;
+        camera.position.y = step7y;
+        camera.position.z = step7z;
+    } else if (t > BreakPoints[9].b) {
+        camera.position.x = step7x;
+        camera.position.y = step7y - (t - BreakPoints[8].s) * 0.05;
+        camera.position.z = step7z;
+    } else if (t > BreakPoints[9].s) {
+        camera.position.x = step8x;
+        camera.position.y = step8y;
+        camera.position.z = step8z;
+    } else if (t > BreakPoints[10].b) {
+        camera.position.x = step8x - (t - BreakPoints[9].s) * 0.06;
+        camera.position.y = step8y;
+        camera.position.z = step8z;
+    } else if (t > BreakPoints[10].s) {
+        camera.position.x = step9x;
+        camera.position.y = step9y;
+        camera.position.z = step9z;
     }
 
     // console.log(t);

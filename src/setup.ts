@@ -3,7 +3,7 @@ import * as THREE from "three";
 export default function setupScene() {
     const scene = new THREE.Scene();
 
-    const camera = new THREE.PerspectiveCamera(75, innerWidth / innerHeight, 0.5, 250);
+    const camera = new THREE.PerspectiveCamera(75, innerWidth / innerHeight, 0.5, 220);
 
     const renderer = new THREE.WebGLRenderer({
         canvas: document.querySelector("#cv")! as HTMLCanvasElement

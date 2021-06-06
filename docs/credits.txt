@@ -6,6 +6,7 @@ Images:
 
 Citations:
     Anon. "Great Migration | NCpedia." NCpedia, 1 Jan 2006, https://www.ncpedia.org/history/cw-1900/great-migration.
+    The Progressive Movement and U.S. Foreign Policy, 1890-1920s. https://2001-2009.state.gov/r/pa/ho/time/ip/108646.htm. Accessed 28 May 2021
 
 Frameworks:
     Vite.js for bundling

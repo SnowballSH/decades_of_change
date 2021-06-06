@@ -164,11 +164,53 @@ Why did WE as citizens have to start doing the real work?
 Why shouldn’t the government be the one that manages society?
 `,
         color: 0x9ff07f,
-        x: 420,
+        x: 400,
         y: -170,
         z: -1110,
         size: 5,
-    }
+    },
+    {
+        text: `
+Because the government corrupted:
+Lawmakers did not respond to the progressives due to greed.
+`,
+        color: 0x9ff07f,
+        x: 400,
+        y: -20,
+        z: -1110,
+        size: 6,
+    },
+    {
+        text: `
+"During the early years of the new century,
+those individuals who tried to approach the government
+with proposals had little success.
+Especially at the local and state levels of government,
+lawmakers were often controlled by political machines and special interest groups.
+At this time, local and state governments reached a low point in American history.
+Greed, corruption, and outright bribery were common among many politicians."
+                               -- The Progressive Movement and U.S. Foreign Policy, 1890-1920s.
+`,
+        color: 0x9ff07f,
+        x: 680,
+        y: 0,
+        z: -1110,
+        size: 5,
+        is2d: true,
+    },
+    {
+        text: `
+Fixing society requires a large amount of money,
+However, the lawmakers surely didn’t want that --
+Their income depends on how successful they are,
+And they don’t want to risk putting the money in!
+`,
+        color: 0x9ff07f,
+        x: 680,
+        y: -100,
+        z: -1110,
+        size: 6,
+    },
 ];
 
 export default textData;
