@@ -14,7 +14,7 @@ the safe communities,
     },
     {
         text: `
-Children are playing in playgrounds
+Children are playing on playgrounds
 with joyful words.
 But who would remember,
 what created all the possibilities?
@@ -27,7 +27,7 @@ what created all the possibilities?
     },
     {
         text: `
-If we travel back in time,
+Let's travel back in time,
 to the late 19th century,
 When the world just started using
 machinery and technology.
@@ -66,12 +66,12 @@ opened up to travelers.
     {
         text: `
 This caused
-the Great Migration,
-People from the south and overseas,
+the Great Migration and Immigrations,
+People from the South and overseas,
 coming with their sailors.
 `,
         color: 0xf04747,
-        x: -220,
+        x: -250,
         y: -180,
         z: -40,
         size: 6,
@@ -81,7 +81,7 @@ coming with their sailors.
 But there were way too many people in the city,
 Leaving citizens living in poverty.
 They had to share their small apartments,
-And children are thrown to the machines, operating them with pity.
+And children are thrown to the machines, operating them without pity.
 `,
         color: 0xab47f0,
         x: -200,
@@ -114,7 +114,7 @@ People needed change.
     },
     {
         text: `
-They have to change.
+They had to change.
 `,
         color: 0xf0d847,
         x: -170,
@@ -124,7 +124,7 @@ They have to change.
     },
     {
         text: `
-They have to do something so that the future generation
+They had to do something so that the future generation
 `,
         color: 0xf0d847,
         x: -250,
@@ -134,7 +134,7 @@ They have to do something so that the future generation
     },
     {
         text: `
-Won’t live in a society without sanitation.
+Wouldn't live in a society without sanitation.
 `,
         color: 0xf0d847,
         x: -220,
@@ -147,7 +147,7 @@ Won’t live in a society without sanitation.
 That’s why a group of people stood up,
 Protesting for voting rights for women and street cleanup.
 Because the government responded with few actions,
-Calling themselves “progressives”,
+Calling themselves “progressives,”
 they’ll solve the problems themselves as a club.
 `,
         color: 0x7FE5F0,
@@ -171,7 +171,7 @@ Why shouldn’t the government be the one that manages society?
     },
     {
         text: `
-Because the government corrupted:
+Because the government was corrupt:
 Lawmakers did not respond to the progressives due to greed.
 `,
         color: 0x87CEEB,
@@ -201,7 +201,8 @@ Greed, corruption, and outright bribery were common among many politicians."
     {
         text: `
 Fixing society requires a large amount of money,
-However, the lawmakers surely didn't want that --
+However, the lawmakers and their corporate friends
+                                                surely didn't want that --
 Their income depends on how successful they are,
 And they don’t want to risk putting the money in!
 `,
@@ -214,7 +215,7 @@ And they don’t want to risk putting the money in!
     {
         text: `
 Lawmakers also don’t experience citizens’ lives:
-They live in courthouses with premium services.
+They live in mansions with premium services.
 They only know to let outsiders migrate,
 But they forgot their own citizens’ experiences.
 `,
@@ -226,32 +227,33 @@ But they forgot their own citizens’ experiences.
     },
     {
         text: `
-It’s not after we spoke up that they took action,
-It’s not after we stroke to the White House that they took action,
-It’s not after we elected a better Senate that they took action,
-It’s not after we were so close to death that they took action.
+It’s not until after we spoke up that they took action,
+It’s not until after we held strikes at the White House that they took action,
+It’s not until after we elected a better Senate that they took action,
+It’s not until after we were so close to death that they took action.
 `,
         color: 0xfb1010,
-        x: 690,
+        x: 700,
         y: -590,
         z: -1110,
-        size: 6,
+        size: 5,
         is2d: true
     },
     {
         text: `
 Although we are living in a peaceful world right now,
-Corruption in the government still sometimes exists.
+Corruption in the government still exists.
 America is only going to change if citizens
         Want the change,
         Speak the change,
         Protest for the change, and
-        Consistently fighting for the change.
-Getting a better life is NOT free.
+        Consistently fight for the change.
+Getting a better life is NOT free,
+But we ARE free to work for it.
 `,
         color: 0xFFD700,
         x: 1000,
-        y: -540,
+        y: -530,
         z: -1110,
         size: 6,
         is2d: true

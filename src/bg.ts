@@ -223,7 +223,7 @@ export function addSpeaker(scene: THREE.Scene) {
         new THREE.MeshStandardMaterial({map: Picture})
     );
 
-    Object_.position.set(1200, -610, -1100);
+    Object_.position.set(1190, -610, -1100);
 
     scene.add(Object_);
 
