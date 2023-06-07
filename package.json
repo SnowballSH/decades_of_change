@@ -7,7 +7,7 @@
   },
   "devDependencies": {
     "typescript": "^4.2.3",
-    "vite": "^2.3.5"
+    "vite": "^2.9.16"
   },
   "dependencies": {
     "@types/three": "^0.128.0",
